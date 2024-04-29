@@ -44,7 +44,7 @@ class StudentTable extends Component {
     } else {
 
       try {
-        const apiUrl = `http://localhost:3005/student/${searchInput}`;
+        const apiUrl = `http://localhost:3005/student/Name/${searchInput}`;
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

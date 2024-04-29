@@ -32,7 +32,7 @@ class StudentForm extends Component {
     const StudentId = splitId[splitId.length-1];
 
     try {
-      const apiUrl = `http://localhost:3005/student/${StudentId}`;
+      const apiUrl = `http://localhost:3005/student/id/${StudentId}`;
       const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -198,7 +198,7 @@ class StudentForm extends Component {
     ) {
       
       try {
-        const apiUrl = `http://localhost:3005/student/${studentNumber}`;
+        const apiUrl = `http://localhost:3005/student/id/${studentNumber}`;
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

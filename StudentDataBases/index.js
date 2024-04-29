@@ -43,6 +43,7 @@ app.post("/Student/", async (request, response) => {
 
 app.get("/student", async (request, response) => {
  const query = `SELECT * FROM Student`;
+ console.log("sai ram")
  try{
     const result = await db.all(query);
     response.json(result);
@@ -52,28 +53,31 @@ app.get("/student", async (request, response) => {
  }
 });
 
-app.get("/student/:StudentId/", async (request, response) => {
-    const {StudentId} = request.params
-    const query = `SELECT * FROM Student WHERE StudentID = "${StudentId}"`;
-    try{
-       const result = await db.all(query);
-       response.json(result);
-    }catch(err){
-       console.error('Error fetching data:',err);
-       response.status(500).send('Internal Server Error')
-    }
-});
 
-app.get('/student/Name/', async (request, response) => {
-  const { Name } = request.params;
-  const query = `SELECT * FROM student  WHERE Name LIKE "%${Name}%"`;
+
+app.get("/student/name/:StudentName", async (request, response) => {
+  const { StudentName } = request.params;
+
+  const query = `SELECT * FROM Student WHERE Name LIKE "%${StudentName}%"`;
   
   try {
-    const result = await db.get(query);
+    const result = await db.all(query);
     response.json(result);
   } catch (err) {
     console.error('Error fetching data:', err);
     response.status(500).send('Internal Server Error'); 
+  }
+});
+
+app.get("/student/id/:StudentId/", async (request, response) => {
+  const {StudentId} = request.params
+  const query = `SELECT * FROM Student WHERE StudentID = "${StudentId}"`;
+  try{
+     const result = await db.all(query);
+     response.json(result);
+  }catch(err){
+     console.error('Error fetching data:',err);
+     response.status(500).send('Internal Server Error')
   }
 });
 

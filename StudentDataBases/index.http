@@ -3,13 +3,13 @@ GET http://localhost:3005/student
 
 ###
 
-GET http://localhost:3005/student/Sai
+GET http://localhost:3005/student/name/r
 
 
 
 ###
 
-GET http://localhost:3005/student/448547847 
+GET http://localhost:3005/student/id/448547847 
 
 
 ###
